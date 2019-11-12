@@ -60,7 +60,8 @@ function flipCard(){
 
     this.setAttribute('src', cards[cardId].cardImage);
     if(cardsInPlay.length === 2){
-        checkForMatch();
+            checkForMatch();
+        
     }
 
 }
@@ -68,3 +69,15 @@ function flipCard(){
 
 createBoard(); //call createBoard function
 
+
+//reset added
+function resetGame(){
+    for(var i = 0; i < cards.length; i++){
+        var reset = document.querySelector('img');
+        reset.parentNode.removeChild(reset);
+    }
+    createBoard();
+}
+
+var resetBtn = document.getElementById('reset');
+resetBtn.addEventListener('click', resetGame);
