@@ -1,3 +1,4 @@
+//self check log
 console.log("Up and running!");
 
 var cards = [
@@ -23,9 +24,10 @@ var cards = [
     }
 ];
 
+//empty array to hold cards
 var cardsInPlay = [];
 
-
+//set board up
 function createBoard(){
     for(var i= 0; i < cards.length; i++){
       var cardElement = document.createElement('img');
@@ -38,7 +40,7 @@ function createBoard(){
 
 
 
-
+//check for match
 function checkForMatch(){
         if(cardsInPlay[0] === cardsInPlay[1]){
             alert("You found a match!")
@@ -47,6 +49,8 @@ function checkForMatch(){
             }
     }
 
+
+    //log which card was flipped
 function flipCard(){
     var cardId = this.getAttribute("data-id");
     console.log("User flipped " + cards[cardId].rank);
@@ -62,6 +66,5 @@ function flipCard(){
 }
 
 
-createBoard();
+createBoard(); //call createBoard function
 
-//work on a reset button
