@@ -29,6 +29,8 @@ var cardsInPlay = [];
 
 //set board up
 function createBoard(){
+    document.getElementById('winner').innerHTML = "";
+    document.getElementById('loser').innerHTML = "";
     for(var i= 0; i < cards.length; i++){
       var cardElement = document.createElement('img');
       cardElement.setAttribute('src', 'images/back.png');
@@ -43,9 +45,9 @@ function createBoard(){
 //check for match
 function checkForMatch(){
         if(cardsInPlay[0] === cardsInPlay[1]){
-            alert("You found a match!")
+            document.getElementById('winner').innerHTML = "You found a match! <p>Press Reset</p>";
             }else{
-                alert("Sorry, try again.");
+            document.getElementById('loser').innerHTML = "Sorry, reset & try again.";
             }
     }
 
@@ -72,11 +74,14 @@ createBoard(); //call createBoard function
 
 //reset added
 function resetGame(){
+    document.getElementById('winner').innerHTML = "";
+     document.getElementById('loser').innerHTML = "";
     for(var i = 0; i < cards.length; i++){
         var reset = document.querySelector('img');
         reset.parentNode.removeChild(reset);
     }
     createBoard();
+    cardsInPlay = [];
 }
 
 var resetBtn = document.getElementById('reset');
